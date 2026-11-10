@@ -3,7 +3,7 @@ import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 import { isExcludedSitemapPath } from './sitemap-exclude.mjs';
 
-const SITE = 'https://cheatsdayz.com';
+const SITE = 'https://cheats-dayz.com';
 const dist = resolveDistDir();
 
 function readSitemapUrls() {
@@ -32,8 +32,8 @@ function checkRobots() {
     return issues;
   }
   const text = fs.readFileSync(robotsPath, 'utf8');
-  if (!text.includes('Sitemap: https://cheatsdayz.com/sitemap.xml')) {
-    issues.push('robots.txt should reference https://cheatsdayz.com/sitemap.xml');
+  if (!text.includes('Sitemap: https://cheats-dayz.com/sitemap.xml')) {
+    issues.push('robots.txt should reference https://cheats-dayz.com/sitemap.xml');
   }
   if (text.includes('Disallow: /go/')) {
     issues.push('robots.txt should not Disallow /go/ (internal checkout links must be crawlable for audits)');
@@ -47,7 +47,7 @@ const warnings = [];
 
 for (const loc of urls) {
   const url = new URL(loc);
-  if (url.protocol !== 'https:' || url.hostname !== 'cheatsdayz.com') {
+  if (url.protocol !== 'https:' || url.hostname !== 'cheats-dayz.com') {
     errors.push(`Non-canonical host in sitemap: ${loc}`);
   }
   if (!url.pathname.endsWith('/')) {

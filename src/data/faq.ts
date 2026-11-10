@@ -45,7 +45,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqStatus',
     q: 'Where do I check if DayZ cheats are online?',
-    a: a('The live status banner is on cheatsdayz.com and in the Discord #status channel. Always check after a DayZ or BattlEye update.'),
+    a: a('The live status banner is on cheats-dayz.com and in the Discord #status channel. Always check after a DayZ or BattlEye update.'),
   },
   {
     id: 'after-buy',
@@ -207,7 +207,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoPro',
     q: 'Who should buy Pro?',
-    a: `PvP players who want Aimbot, Smooth Aim and Hotkey macros with ESP wallhack included. Pro is the most popular tier at cheatsdayz.com.`,
+    a: `PvP players who want Aimbot, Smooth Aim and Hotkey macros with ESP wallhack included. Pro is the most popular tier at cheats-dayz.com.`,
     scopes: ['pro'],
   },
   {
@@ -223,7 +223,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'safety',
     icon: 'faqEacUpdate',
     q: 'What should I do after a BattlEye update?',
-    a: a('Check cheatsdayz.com status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
+    a: a('Check cheats-dayz.com status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
   },
   {
     id: 'discord-help',
@@ -452,7 +452,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideStart',
       q: 'Should I use console cheat codes in PvP?',
-      a: a('No. Community lobby cheat codes only work in custom games with cheats enabled. PvP requires separate DayZ cheats from cheatsdayz.com tiers.'),
+      a: a('No. Community lobby cheat codes only work in custom games with cheats enabled. PvP requires separate DayZ cheats from cheats-dayz.com tiers.'),
     },
     {
       id: 'blog-guide-tier',

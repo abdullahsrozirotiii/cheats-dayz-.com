@@ -6,7 +6,7 @@ import { isExcludedSitemapPath } from './scripts/sitemap-exclude.mjs';
 import { buildSlugRedirectMap } from './src/config/slug-redirects.mjs';
 
 export default defineConfig({
-  site: 'https://cheatsdayz.com',
+  site: 'https://cheats-dayz.com',
   trailingSlash: 'always',
   redirects: {
     ...buildSlugRedirectMap(),
@@ -34,7 +34,7 @@ export default defineConfig({
       filter: (page) => {
         if (page.includes('/404') || page.includes('/go/')) return false;
         try {
-          const pathname = new URL(page, 'https://cheatsdayz.com').pathname;
+          const pathname = new URL(page, 'https://cheats-dayz.com').pathname;
           return !isExcludedSitemapPath(pathname);
         } catch {
           return false;

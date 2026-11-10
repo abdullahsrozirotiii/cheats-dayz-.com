@@ -29,6 +29,16 @@ export function getOrganizationSameAs(): string[] {
 
 export const INDEXNOW_KEY = import.meta.env.INDEXNOW_KEY as string | undefined;
 
+/** Meta descriptions: aim for 120–155 characters (audit hard cap ~160). */
+export function clampMetaDescription(text: string, maxLen = 155): string {
+  const trimmed = text.trim().replace(/\s+/g, ' ');
+  if (trimmed.length <= maxLen) return trimmed;
+  const slice = trimmed.slice(0, maxLen - 1);
+  const lastSpace = slice.lastIndexOf(' ');
+  const cut = lastSpace > 80 ? slice.slice(0, lastSpace) : slice;
+  return `${cut.trimEnd()}…`;
+}
+
 export function canonicalUrl(pathname: string): string {
   let path = pathname || '/';
   if (!path.startsWith('/')) path = `/${path}`;

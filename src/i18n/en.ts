@@ -7,26 +7,26 @@ const productBase = PRODUCT_BASE;
 export const en: Translations = {
   site: {
     name: 'DayZ Cheats',
-    domain: 'cheatsdayz.com',
-    title: 'DayZ Cheats | Aimbot, ESP, Radar & Loot — PC',
+    domain: 'cheats-dayz.com',
+    title: 'DayZ Cheats | Aimbot, ESP & Radar — cheats-dayz.com',
     description:
-      'DayZ cheats for Standalone on PC — undetected aimbot, ESP loot finder and radar overlays. Lite, Pro and Elite keys plus utilities at cheatsdayz.com.',
+      'DayZ cheats for PC: aimbot, ESP, radar and Lite/Pro/Elite tiers. Undetected presets and checkout at cheats-dayz.com.',
     discord: DISCORD_URL,
   },
   nav: [
-    { href: `${productBase}`, label: 'Products' },
-    { href: '/blog/', label: 'Blog' },
-    { href: '/forum/', label: 'Forum' },
-    { href: '/faq/', label: 'FAQ' },
-    { href: '/support/', label: 'Support' },
+    { href: `${productBase}`, label: 'Shop cheats' },
+    { href: '/blog/', label: 'Cheat guides' },
+    { href: '/forum/', label: 'Community Q&A' },
+    { href: '/faq/', label: "Buyer's FAQ" },
+    { href: '/support/', label: 'Help desk' },
   ],
   hero: {
     status: 'DayZ online',
     eyebrow: 'DayZ Cheats',
-    titleLine1: 'DayZ Cheats with Aimbot,',
-    titleLine2: 'ESP, Radar & Loot ESP',
+    titleLine1: 'cheats-dayz.com — DayZ Cheats',
+    titleLine2: 'Aimbot, ESP, Radar & Loot',
     subtitle:
-      'DayZ is built on exploration and survival — our DayZ cheats cut looting time with ESP that highlights high-value gear, players and allies on official and community servers. Stay undetected with silent aimbot, radar awareness and stream-safe overlays from cheatsdayz.com.',
+      'Undetected DayZ cheats for PC Steam — ESP loot finder, silent aimbot and radar for official and community servers. Lite, Pro and Elite at cheats-dayz.com.',
     ctaPrimary: 'Buy cheats',
     ctaDiscord: 'Join Discord',
     modesLabel: 'Modes',
@@ -156,7 +156,7 @@ export const en: Translations = {
       {
         title: 'Undetected DayZ Standalone cheats',
         desc:
-          'We pause or update builds at the first credible report so you are not left on a flagged loader. Check the live status banner on cheatsdayz.com before every session — if a product shows undetected, it is cleared to use.',
+          'We pause or update builds at the first credible report so you are not left on a flagged loader. Check the live status banner on cheats-dayz.com before every session — if a product shows undetected, it is cleared to use.',
       },
       {
         title: 'Safest DayZ cheats we can offer',
@@ -197,7 +197,7 @@ export const en: Translations = {
       {
         value: '300+',
         title: 'Users',
-        desc: 'PC players using aimbot, ESP and tools on cheatsdayz.com.',
+        desc: 'PC players using aimbot, ESP and tools on cheats-dayz.com.',
       },
     ],
   },
@@ -281,7 +281,7 @@ export const en: Translations = {
     eyebrow: 'Shop',
     title: 'Best DayZ cheats',
     subtitle:
-      'Some of the safest DayZ cheats available for PC Steam — Lite, Pro and Elite keys plus HWID spoofer, UGC and Clothing Changer. Compare packages before checkout on cheatsdayz.com.',
+      'Some of the safest DayZ cheats available for PC Steam — Lite, Pro and Elite keys plus HWID spoofer, UGC and Clothing Changer. Compare packages before checkout on cheats-dayz.com.',
     viewAll: 'View all cheats',
     get: 'Buy',
     explore: 'Explore',
@@ -289,7 +289,7 @@ export const en: Translations = {
       {
         badge: 'Available',
         category: 'Tools',
-        title: 'Hwid Spoofer',
+        title: 'DayZ HWID Spoofer',
         subtitle:
           'Buy HWID Spoofer with instant digital delivery, secure checkout, and support. Built for HWID ban recovery, including Valorant and Vanguard.',
         desc:
@@ -307,7 +307,7 @@ export const en: Translations = {
       {
         badge: 'Available',
         category: 'Account recovery',
-        title: 'Ugc',
+        title: 'DayZ Game Accounts (UGC)',
         subtitle:
           'Buy game accounts with instant delivery, secure checkout, and support—ready-made stock for ranked, leveled, and starter options.',
         desc:
@@ -464,7 +464,7 @@ export const en: Translations = {
         title: 'DayZ HWID Spoofer vs New Account After BattlEye Ban',
         slug: 'dayz-hwid-spoofer',
         image: '/images/blog/dayz-hwid-spoofer-after-ban.png',
-        desc: 'When to spoof hardware, when to start fresh, and how cheatsdayz.com/products/dayz-cheats fits each path.',
+        desc: 'When to spoof hardware, when to start fresh, and how cheats-dayz.com/products/dayz-cheats fits each path.',
         date: 'Aug 13, 2026',
         readTime: '7 min read',
       },
@@ -534,7 +534,7 @@ export const en: Translations = {
     titleBefore: 'The importance of',
     titleHighlight: 'DayZ cheats.',
     subtitle:
-      'DayZ rewards long-term survival — rivals may already run DayZ cheats with aimbot and ESP. Stay competitive with undetected Standalone cheats, status checks and personal support from cheatsdayz.com.',
+      'DayZ rewards long-term survival — rivals may already run DayZ cheats with aimbot and ESP. Stay competitive with undetected Standalone cheats, status checks and personal support from cheats-dayz.com.',
     ctaLabel: 'Buy cheats',
     ctaHref: productBase,
     ctaSecondary: 'Setup FAQ',
@@ -544,7 +544,7 @@ export const en: Translations = {
         num: '01',
         phase: 'Before purchase',
         title: 'Check status',
-        desc: 'Read the live banner on cheatsdayz.com before you buy or launch.',
+        desc: 'Read the live banner on cheats-dayz.com before you buy or launch.',
       },
       {
         num: '02',
@@ -624,7 +624,7 @@ export const en: Translations = {
       {
         num: '01',
         q: 'Where do I check if DayZ cheats are online?',
-        a: 'The live status banner is on cheatsdayz.com and in the Discord #status channel. Always check after a DayZ or BattlEye update.',
+        a: 'The live status banner is on cheats-dayz.com and in the Discord #status channel. Always check after a DayZ or BattlEye update.',
       },
       {
         num: '02',
@@ -644,7 +644,7 @@ export const en: Translations = {
       {
         num: '05',
         q: 'Where are products and utilities listed?',
-        a: 'Cheat tiers, HWID Spoofer, UGC and Clothing Changer live at cheatsdayz.com/products/dayz-cheats with feature lists and checkout via our partner.',
+        a: 'Cheat tiers, HWID Spoofer, UGC and Clothing Changer live at cheats-dayz.com/products/dayz-cheats with feature lists and checkout via our partner.',
       },
     ],
   },
@@ -658,6 +658,7 @@ export const en: Translations = {
       { href: '/products/dayz-cheats/elite/', label: 'Elite dayz cheats', ariaLabel: 'Elite cheats' },
       { href: '/products/dayz-cheats/', label: 'All products & utilities', ariaLabel: 'Products' },
       { href: '/blog/', label: 'Read patch guides', ariaLabel: 'Blog' },
+      { href: '/forum/', label: 'Browse community Q&A', ariaLabel: 'Forum' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
     ],
     support: 'Help center',
@@ -670,12 +671,12 @@ export const en: Translations = {
     about: {
       title: 'About DayZ Cheats | Buy PC Aimbot & ESP',
       description:
-        'About DayZ Cheats — buy PC DayZ cheats (aimbot, ESP, radar), utilities and guides at cheatsdayz.com.',
+        'About DayZ Cheats — buy PC DayZ cheats (aimbot, ESP, radar), utilities and guides at cheats-dayz.com.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'DayZ Cheats is a PC site for DayZ aimbot, ESP, radar and Clothing Changer products at cheatsdayz.com. We post tier comparisons, setup guides and live status notes.',
+            'DayZ Cheats is a PC site for DayZ aimbot, ESP, radar and Clothing Changer products at cheats-dayz.com. We post tier comparisons, setup guides and live status notes.',
             'Game and product names are for identification only.',
           ],
         },
@@ -697,12 +698,12 @@ export const en: Translations = {
     privacy: {
       title: 'Privacy Policy | DayZ Cheats Shop',
       description:
-        'How the DayZ cheats shop at cheatsdayz.com handles analytics, cookies and contact data.',
+        'How the DayZ cheats shop at cheats-dayz.com handles analytics, cookies and contact data.',
       sections: [
         {
           heading: 'Information we collect',
           paragraphs: [
-            'We may collect basic analytics such as page views, device type, browser and approximate region through Google Analytics when it is enabled. Checkout runs on external pages. We do not store payment card data on cheatsdayz.com.',
+            'We may collect basic analytics such as page views, device type, browser and approximate region through Google Analytics when it is enabled. Checkout runs on external pages. We do not store payment card data on cheats-dayz.com.',
           ],
         },
         {
@@ -728,12 +729,12 @@ export const en: Translations = {
     terms: {
       title: 'Terms for DayZ Cheats | License & Refunds',
       description:
-        'Terms for buying DayZ cheats on cheatsdayz.com — license use, delivery, refunds and account risk.',
+        'Terms for buying DayZ cheats on cheats-dayz.com — license use, delivery, refunds and account risk.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'Last updated: September 2026. By using cheatsdayz.com or buying a product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
+            'Last updated: September 2026. By using cheats-dayz.com or buying a product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
           ],
         },
         {
@@ -746,7 +747,7 @@ export const en: Translations = {
         {
           heading: 'Checkout and delivery',
           paragraphs: [
-            'Payment and license delivery run on external checkout pages. cheatsdayz.com does not process or store payment card numbers.',
+            'Payment and license delivery run on external checkout pages. cheats-dayz.com does not process or store payment card numbers.',
             'After purchase, use the operator portal linked from your order flow to download the current loader and setup guide before launching DayZ.',
           ],
         },
@@ -788,7 +789,7 @@ export const en: Translations = {
     support: {
       title: 'DayZ Cheats Support | Loader, HWID & Checkout',
       description:
-        'DayZ cheats support for loader setup, HWID spoofing and checkout help at cheatsdayz.com.',
+        'DayZ cheats support for loader setup, HWID spoofing and checkout help at cheats-dayz.com.',
     },
   },
   ui: {

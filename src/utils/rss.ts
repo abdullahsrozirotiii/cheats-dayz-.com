@@ -35,7 +35,7 @@ export function buildRssFeed(): string {
   <channel>
     <title>DayZ Cheats Blog</title>
     <link>${SITE_ORIGIN}/blog/</link>
-    <description>DayZ cheat guides, patch notes, and setup walkthroughs from cheatsdayz.com.</description>
+    <description>DayZ cheat guides, patch notes, and setup walkthroughs from cheats-dayz.com.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />

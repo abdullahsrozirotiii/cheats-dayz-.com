@@ -1,0 +1,61 @@
+---
+import { canonicalUrl } from '../config/seo';
+
+interface Props {
+  pathname: string;
+  title: string;
+}
+
+const { pathname, title } = Astro.props;
+const pageUrl = canonicalUrl(pathname);
+const encodedUrl = encodeURIComponent(pageUrl);
+const encodedTitle = encodeURIComponent(title);
+const encodedText = encodeURIComponent(`${title} — cheats-dayz.com`);
+
+const shares = [
+  {
+    label: 'Share on X',
+    href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`,
+  },
+  {
+    label: 'Share on Facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+  },
+  {
+    label: 'Share on Reddit',
+    href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
+  },
+  {
+    label: 'Share on WhatsApp',
+    href: `https://wa.me/?text=${encodedText}%20${encodedUrl}`,
+  },
+  {
+    label: 'Share on Telegram',
+    href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
+  },
+  {
+    label: 'Share on LinkedIn',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  },
+];
+---
+
+<nav class="space-y-2" aria-label="Share this page">
+  <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Share</p>
+  <ul class="flex flex-wrap gap-2">
+    {
+      shares.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{item.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

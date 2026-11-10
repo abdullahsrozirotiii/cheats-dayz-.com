@@ -17,11 +17,11 @@ html_handling = "auto-trailing-slash"
 # Run worker before assets so www canonical redirect always applies.
 run_worker_first = true
 
-# After `wrangler login`, attach your domain (zone must be on this Cloudflare account):
+# Attach custom domain in dashboard or uncomment when zone cheats-dayz.com is on this account:
 # [[routes]]
-# pattern = "cheatsdayz.com/*"
-# zone_name = "cheatsdayz.com"
+# pattern = "cheats-dayz.com/*"
+# zone_name = "cheats-dayz.com"
 #
 # [[routes]]
-# pattern = "www.cheatsdayz.com/*"
-# zone_name = "cheatsdayz.com"
+# pattern = "www.cheats-dayz.com/*"
+# zone_name = "cheats-dayz.com"

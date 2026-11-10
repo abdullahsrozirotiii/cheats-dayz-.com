@@ -34,7 +34,7 @@ export function websiteSchema() {
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'DayZ cheats and hacks for PC — aimbot, ESP wallhack, radar, Lite Pro Elite tiers and utilities at cheatsdayz.com.',
+      'DayZ cheats for PC — aimbot, ESP, radar, Lite Pro Elite tiers and utilities at cheats-dayz.com.',
   };
 }
 

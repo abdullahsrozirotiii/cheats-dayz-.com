@@ -3,7 +3,7 @@ import '../../styles/blog-pages.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../../data/blog';
-import { cheatMetaDescription, pageTitle } from '../../config/seo';
+import { cheatMetaDescription, pageTitle, SITE_ORIGIN } from '../../config/seo';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -57,7 +57,7 @@ function linkify(text: string): string {
     .replace(/(https:\/\/dayzcheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
       const path = url.replace(/^https:\/\/dayzcheats\.com/, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://cheatsdayz.com${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `${SITE_ORIGIN}${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }

@@ -1,8 +1,15 @@
-const CANONICAL_HOST = 'cheatsdayz.com';
+const CANONICAL_HOST = 'cheats-dayz.com';
+
+/** Hostnames that should 301 to the apex custom domain. */
+const REDIRECT_TO_APEX = new Set([
+  `www.${CANONICAL_HOST}`,
+  'cheatsdayz.com',
+  'www.cheatsdayz.com',
+]);
 
 /**
  * Serves static assets from dist/ (via ASSETS binding).
- * Redirects www → apex so SEO stays on one host (path redirects live in dist/_redirects).
+ * Canonical host: cheats-dayz.com (www / legacy hosts redirect here).
  */
 export default {
   async fetch(request, env): Promise<Response> {
@@ -10,14 +17,26 @@ export default {
     const host = url.hostname.toLowerCase();
 
     const needsHttps = url.protocol === 'http:';
-    const needsWwwStrip = host === `www.${CANONICAL_HOST}`;
+    const needsHostRedirect = REDIRECT_TO_APEX.has(host);
 
-    if (needsHttps || needsWwwStrip) {
+    if (needsHttps || needsHostRedirect) {
       url.protocol = 'https:';
       url.hostname = CANONICAL_HOST;
       return Response.redirect(url.toString(), 301);
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+
+    if (host.endsWith('.workers.dev')) {
+      const headers = new Headers(response.headers);
+      headers.set('X-Robots-Tag', 'noindex, nofollow');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+    }
+
+    return response;
   },
 } satisfies ExportedHandler<Env>;

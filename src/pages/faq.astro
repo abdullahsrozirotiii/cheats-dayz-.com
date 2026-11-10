@@ -23,7 +23,7 @@ const faqs = getAllFaqs();
     webPageSchema({
       name: 'FAQ — DayZ Cheats & Products',
       description:
-        'Answers about DayZ cheat tiers, ESP wallhack, aimbot, HWID tools, blog guides and checkout at cheatsdayz.com.',
+        'Answers about DayZ cheat tiers, ESP wallhack, aimbot, HWID tools, blog guides and checkout at cheats-dayz.com.',
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),

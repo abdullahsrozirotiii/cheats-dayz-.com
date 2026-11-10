@@ -1,5 +1,5 @@
 /**
- * Fortnite Cheats → DayZ Cheats (cheatsdayz.com) rebrand.
+ * Fortnite Cheats → DayZ Cheats (cheats-dayz.com) rebrand.
  * Run from project root: node scripts/rebrand-dayz.mjs
  */
 import fs from 'node:fs';
@@ -26,7 +26,7 @@ const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', '.seo-baseline']);
 
 /** Ordered longest-first brand / path / slug replacements. */
 const REPLACEMENTS = [
-  ['fortnite-cheats.com', 'cheatsdayz.com'],
+  ['fortnite-cheats.com', 'cheats-dayz.com'],
   ['FortniteCheats', 'DayZCheats'],
   ['Fortnitecheats', 'Dayzcheats'],
   ['fortnitecheats', 'dayzcheats'],

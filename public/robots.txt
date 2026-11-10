@@ -3,9 +3,9 @@ Allow: /
 
 # /go/* are 302 affiliate checkout exits (not in sitemap). Allow crawlers so internal links are not "blocked by robots".
 
-Sitemap: https://cheatsdayz.com/sitemap.xml
+Sitemap: https://cheats-dayz.com/sitemap.xml
 
-# RSS: https://cheatsdayz.com/rss.xml
+# RSS: https://cheats-dayz.com/rss.xml
 
 # Legacy 301 sources (no standalone content)
 Disallow: /blog/battleye-bypass-dayz-guide/

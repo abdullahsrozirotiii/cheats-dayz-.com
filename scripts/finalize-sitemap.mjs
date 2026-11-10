@@ -3,7 +3,7 @@ import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 import { isExcludedSitemapPath } from './sitemap-exclude.mjs';
 
-const SITE = 'https://cheatsdayz.com';
+const SITE = 'https://cheats-dayz.com';
 const dist = resolveDistDir();
 
 function loadUrlsetXml(dir) {
@@ -68,7 +68,7 @@ function normalizeUrl(loc) {
     return null;
   }
   if (url.protocol !== 'https:') url.protocol = 'https:';
-  url.hostname = 'cheatsdayz.com';
+  url.hostname = 'cheats-dayz.com';
   url.hash = '';
   url.search = '';
   let pathname = url.pathname;

@@ -1,17 +1,17 @@
-# Search Console workflow (cheatsdayz.com)
+# Search Console workflow (cheats-dayz.com)
 
 You verify the domain at your DNS provider—no HTML meta tags in the repo.
 
 ## Setup (once)
 
-1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `cheatsdayz.com` if it is not already there.
+1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `cheats-dayz.com` if it is not already there.
 2. Under **Sitemaps**, submit the index first (required):
-   - `https://cheatsdayz.com/sitemap.xml`
+   - `https://cheats-dayz.com/sitemap.xml`
 3. Optional — submit child sitemaps too (same URLs, clearer GSC status per section):
-   - `https://cheatsdayz.com/sitemap-pages.xml`
-   - `https://cheatsdayz.com/sitemap-products.xml`
-   - `https://cheatsdayz.com/sitemap-blog.xml`
-   - `https://cheatsdayz.com/sitemap-forum.xml`
+   - `https://cheats-dayz.com/sitemap-pages.xml`
+   - `https://cheats-dayz.com/sitemap-products.xml`
+   - `https://cheats-dayz.com/sitemap-blog.xml`
+   - `https://cheats-dayz.com/sitemap-forum.xml`
 4. Repeat in [Bing Webmaster Tools](https://www.bing.com/webmasters) if you use Bing.
 
 ## Monthly tune (15 minutes)

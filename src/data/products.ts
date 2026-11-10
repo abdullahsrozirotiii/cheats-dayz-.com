@@ -102,7 +102,7 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Check the live banner on cheatsdayz.com and Discord #status before purchase—especially after a DayZ or BattlEye update.',
+    desc: 'Check the live banner on cheats-dayz.com and Discord #status before purchase—especially after a DayZ or BattlEye update.',
   },
   {
     num: '02',
@@ -129,7 +129,7 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'DayZ and BattlEye receive frequent updates. Confirm module availability on the live status panel at cheatsdayz.com before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
+  'DayZ and BattlEye receive frequent updates. Confirm module availability on the live status panel at cheats-dayz.com before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
 
 const sharedLimitations =
   'Third-party software in DayZ can violate Bohemia Interactive Terms of Use and lead to BattlEye bans or account action. You use this software at your own risk. Compatibility and availability can change after game, BattlEye, or Windows updates without notice.';
@@ -404,7 +404,7 @@ const tierBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Recommended pairing' },
     {
       type: 'p',
-      text: 'Pro is the most popular tier at cheatsdayz.com—enough firepower for high-rank lobbies without Elite slot limits. Pair with our aimbot guide in the blog before your first PvP session.',
+      text: 'Pro is the most popular tier at cheats-dayz.com—enough firepower for high-rank lobbies without Elite slot limits. Pair with our aimbot guide in the blog before your first PvP session.',
     },
   ],
   elite: [
@@ -616,7 +616,7 @@ const productContent: Record<
       title: 'DayZ Elite: full cheat + extras',
       paragraphs: [
         'Elite includes Lite and Pro modules, plus loot assist, Finish assist, Wallbang assist, Clothing Changer, full ESP suite and faster patch priority.',
-        'Slots are limited. Discord support helps you set safer profiles before PvP. Check the status banner on cheatsdayz.com before you buy.',
+        'Slots are limited. Discord support helps you set safer profiles before PvP. Check the status banner on cheats-dayz.com before you buy.',
       ],
     },
   },
