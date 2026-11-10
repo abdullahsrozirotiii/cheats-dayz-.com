@@ -226,7 +226,9 @@ export interface Translations {
     explore: string;
     exploreLinks: NavLink[];
     support: string;
+    supportLinks: NavLink[];
     legal: string;
+    legalLinks: NavLink[];
     privacy: string;
     terms: string;
     about: string;

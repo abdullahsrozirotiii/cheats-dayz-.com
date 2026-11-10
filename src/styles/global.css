@@ -861,3 +861,16 @@ html:not(.dark) .deployment-cta-secondary:hover {
   object-fit: cover;
   object-position: center;
 }
+
+/* Footer — 4-column reference layout (brand · explore · support · legal) */
+.site-footer__tagline {
+  max-width: 16.5rem;
+}
+
+.site-footer__heading {
+  color: color-mix(in oklab, var(--foreground) 72%, transparent);
+}
+
+.site-footer__link {
+  display: inline-block;
+}
