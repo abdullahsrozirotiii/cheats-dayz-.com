@@ -25,18 +25,9 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    const response = await env.ASSETS.fetch(request);
-
-    if (host.endsWith('.workers.dev')) {
-      const headers = new Headers(response.headers);
-      headers.set('X-Robots-Tag', 'noindex, nofollow');
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers,
-      });
-    }
-
-    return response;
+    // Indexing is controlled by each page's <meta name="robots"> and canonical URL.
+    // Do not set X-Robots-Tag here — conflicting noindex headers break SEO audits and
+    // override meta robots on *.workers.dev preview hosts.
+    return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;

@@ -37,4 +37,4 @@ After the worker exists on the **same** Cloudflare account:
 
 ## SEO audits
 
-Run third-party audits on **`https://cheats-dayz.com/.../`** (trailing slash), not `*.workers.dev`. Preview hosts send `X-Robots-Tag: noindex` and use production canonical URLs by design.
+For production checks, audit **`https://cheats-dayz.com/.../`** (trailing slash). On `*.workers.dev`, canonical tags still point at the live domain until custom domain is attached.
