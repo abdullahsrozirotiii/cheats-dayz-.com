@@ -2,6 +2,8 @@
 
 Static [Astro](https://astro.build) site for DayZ cheats — deployed on **Cloudflare Workers** (static assets + edge worker).
 
+**Handoff (deploy + domain on someone else’s Cloudflare account):** [docs/CLOUDFLARE-HANDOFF-ROMAN-URDU.md](docs/CLOUDFLARE-HANDOFF-ROMAN-URDU.md) · [docs/DEPLOY-CHECKLIST.md](docs/DEPLOY-CHECKLIST.md)
+
 ## Local development
 
 ```bash
@@ -25,7 +27,8 @@ npm start         # Node static server with redirects (local parity)
 1. Install dependencies and log in:
 
    ```bash
-   npm install
+   npm ci
+   npm run verify:deploy
    npx wrangler login
    ```
 
@@ -44,10 +47,11 @@ In **GitHub** → repo **Settings** → **Secrets and variables** → **Actions*
 | `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → **My Profile** → **API Tokens** → **Create Token** → template **Edit Cloudflare Workers** (or custom: Account Workers Scripts Edit + Workers R2 Storage / Account read) |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → **Workers & Pages** → right sidebar **Account ID** (32-character hex) |
 
-Without both secrets, the **Deploy to Cloudflare Workers** workflow fails with `CLOUDFLARE_API_TOKEN environment variable`.
 | `INDEXNOW_KEY` (optional) | Only if you use IndexNow pings on build |
 
-Every push to **`main`** runs `.github/workflows/cloudflare-deploy.yml` (build + `wrangler deploy` to worker **`cheatsdayz-com`**).
+Without **`CLOUDFLARE_API_TOKEN`** and **`CLOUDFLARE_ACCOUNT_ID`**, the **Deploy to Cloudflare Workers** workflow fails at “Require Cloudflare secrets” (expected until ops adds secrets).
+
+Every push to **`main`** runs `.github/workflows/cloudflare-deploy.yml` (build + `wrangler deploy` to worker **`cheatsdayz-com`**). Custom domain is attached **after** deploy — see handoff doc; do not require domain for the first deploy.
 
 If you use **Cloudflare Workers Builds** (repo connected in the dashboard), set **Node.js version** to **22** (or rely on `.node-version`). The repo includes a synced `package-lock.json` so `npm ci` succeeds on Cloudflare.
 

@@ -47,9 +47,18 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
 
+      - name: Verify deploy config
+        run: npm run verify:deploy
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+
+      - name: Post-deploy (custom domain)
+        run: |
+          echo "::notice::Worker cheatsdayz-com deployed. Attach cheats-dayz.com in Cloudflare:"
+          echo "::notice::Workers & Pages → cheatsdayz-com → Domains & Routes (after zone is on this account)."
+          echo "::notice::Handoff guide: docs/CLOUDFLARE-HANDOFF-ROMAN-URDU.md"
