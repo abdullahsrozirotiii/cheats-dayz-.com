@@ -1,0 +1,29 @@
+---
+import Icon from './icons/Icon.astro';
+import type { IconName } from './icons/types';
+import { checkoutLinkRel } from '../config/checkout';
+
+interface Props {
+  href: string;
+  class?: string;
+  ariaLabel?: string;
+  icon?: IconName;
+}
+
+const { href, class: className, ariaLabel, icon = 'arrowRight' } = Astro.props;
+const rel = checkoutLinkRel(href);
+---
+
+<a
+  href={href}
+  class:list={['slide-reveal-btn', className]}
+  {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+  {...(rel ? { rel } : {})}
+>
+  <span class="slide-reveal-btn__icon" aria-hidden="true">
+    <Icon name={icon} size={18} class="slide-reveal-btn__svg" />
+  </span>
+  <span class="slide-reveal-btn__text">
+    <slot />
+  </span>
+</a>

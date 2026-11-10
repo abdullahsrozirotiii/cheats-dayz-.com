@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { carousel } from "./variants";
+
+type Props = HTMLAttributes<"div"> & {
+  orientation?: "horizontal" | "vertical";
+  opts?: import("@starwind-ui/astro/carousel").CarouselOptions["opts"];
+  /** When false, init via createCarousel in products-carousel.ts or hero-embla.ts (avoids eager CarouselRoot JS). */
+  autoInit?: boolean;
+};
+
+const {
+  orientation = "horizontal",
+  opts = {},
+  autoInit = false,
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<div
+  data-sw-carousel
+  role="region"
+  aria-roledescription="carousel"
+  data-axis={orientation === "vertical" ? "y" : "x"}
+  data-opts={JSON.stringify(opts)}
+  data-auto-init={autoInit ? undefined : "false"}
+  class={carousel({ class: className })}
+  {...rest}
+  data-slot="carousel"
+>
+  <slot />
+</div>

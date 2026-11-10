@@ -1,0 +1,26 @@
+---
+interface Props {
+  class?: string;
+  /** Decorative when parent link has aria-label; still set for crawlers. */
+  alt?: string;
+}
+
+const { class: className, alt = 'DayZ Cheats' } = Astro.props;
+
+const widths = [96, 128, 192] as const;
+const srcSet = widths.map((w) => `/images/dayz-brand-logo-${w}.webp ${w}w`).join(', ');
+---
+
+<picture>
+  <source type="image/webp" srcset={srcSet} sizes="(min-width: 1024px) 10rem, 8rem" />
+  <img
+    src="/images/dayz-brand-logo-96.webp"
+    alt={alt}
+    width={128}
+    height={62}
+    class={className}
+    decoding="async"
+    fetchpriority="low"
+    loading="eager"
+  />
+</picture>

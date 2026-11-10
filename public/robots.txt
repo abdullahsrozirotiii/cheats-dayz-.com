@@ -1,0 +1,54 @@
+User-agent: *
+Allow: /
+
+# /go/* are 302 affiliate checkout exits (not in sitemap). Allow crawlers so internal links are not "blocked by robots".
+
+Sitemap: https://cheatsdayz.com/sitemap.xml
+
+# RSS: https://cheatsdayz.com/rss.xml
+
+# Legacy 301 sources (no standalone content)
+Disallow: /blog/battleye-bypass-dayz-guide/
+Disallow: /blog/be-patch-day-checklist/
+Disallow: /blog/dayz-aimbot-combat-guide/
+Disallow: /blog/dayz-aimbot-pvp-guide/
+Disallow: /blog/dayz-cheat-codes-guide/
+Disallow: /blog/dayz-cheats-features-guide/
+Disallow: /blog/dayz-clothing-changer-guide/
+Disallow: /blog/dayz-console-cheats-tips/
+Disallow: /blog/dayz-console-commands-cheats/
+Disallow: /blog/dayz-elite-tier-guide/
+Disallow: /blog/dayz-esp-wallhack-setup/
+Disallow: /blog/dayz-external-cheat-guide/
+Disallow: /blog/dayz-hwid-spoofer-after-ban/
+Disallow: /blog/dayz-radar-hack-guide/
+Disallow: /blog/dayz-stream-proof-setup/
+Disallow: /blog/how-to-buy-dayz-cheats-2026/
+Disallow: /blog/how-to-use-dayz-cheat-codes/
+Disallow: /cheats/
+Disallow: /contact/
+Disallow: /forum/can-custom-lobby-cheat-codes-be-used-in-PvP/
+Disallow: /forum/can-custom-lobby-cheat-codes-be-used-in-pvp/
+Disallow: /forum/dayz-lite-or-pro-aimbot/
+Disallow: /forum/how-do-lite-and-pro-differ/
+Disallow: /forum/how-does-an-external-loader-work/
+Disallow: /forum/how-to-check-stream-proof-capture/
+Disallow: /forum/how-to-choose-dayz-product-tier/
+Disallow: /forum/how-to-enable-the-dayz-console/
+Disallow: /forum/how-to-learn-weapon-aim-in-community/
+Disallow: /forum/how-to-practice-auto-combos/
+Disallow: /forum/how-to-set-up-map-overlay/
+Disallow: /forum/how-to-tune-script-delay-settings/
+Disallow: /forum/practice-dayz-high-ground-safely/
+Disallow: /forum/what-does-dayz-map-awareness-include/
+Disallow: /forum/what-is-in-the-elite-tier/
+Disallow: /forum/what-to-check-after-a-dayz-patch/
+Disallow: /forum/what-to-check-before-installing-tools/
+Disallow: /forum/what-to-do-after-hwid-change/
+Disallow: /forum/what-to-do-if-battleye-cannot-verify/
+Disallow: /forum/what-to-know-about-skin-changer/
+Disallow: /forum/what-zoom-settings-are-comfortable/
+Disallow: /products/dayz-cheats/account-recovery/
+Disallow: /products/dayz-cheats/unlock-all/
+Disallow: /products/dota-2-cheats/
+Disallow: /products/fortnite-cheats/

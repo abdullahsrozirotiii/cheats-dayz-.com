@@ -1,0 +1,85 @@
+{
+  "gameplay": [
+    {
+      "file": "dayz-esp-wallhack.png",
+      "alt": "DayZ ESP wallhack cheat gameplay with player boxes distance tags and aimbot FOV",
+      "srcIndex": 0
+    },
+    {
+      "file": "dayz-aimbot-combat.png",
+      "alt": "DayZ aimbot cheat gameplay with FOV circle and green skeleton ESP on enemy",
+      "srcIndex": 1
+    },
+    {
+      "file": "dayz-player-esp.png",
+      "alt": "DayZ player ESP wallhack showing skeletons boxes and distance meters",
+      "srcIndex": 2
+    },
+    {
+      "file": "dayz-radar-hack.png",
+      "alt": "DayZ radar and ESP overlay with enemy name tags health and range markers",
+      "srcIndex": 3
+    },
+    {
+      "file": "dayz-aimbot.png",
+      "alt": "DayZ sniper aimbot cheat with green ESP box weapon label and FOV circle",
+      "srcIndex": 4
+    },
+    {
+      "file": "dayz-loot-esp.png",
+      "alt": "DayZ loot and loot ESP gameplay with enemy boxes and distance trackers",
+      "srcIndex": 5
+    },
+    {
+      "file": "dayz-clothing-changer.png",
+      "alt": "DayZ cheat gameplay with chams skeleton ESP and aim lock on pier",
+      "srcIndex": 6
+    },
+    {
+      "file": "dayz-thermal-esp.png",
+      "alt": "DayZ thermal vision ESP showing skeleton wallhack HP and distance",
+      "srcIndex": 7
+    },
+    {
+      "file": "dayz-build-fight-esp.png",
+      "alt": "DayZ build fight ESP wallhack with names HP bars and FOV circle",
+      "srcIndex": 8
+    },
+    {
+      "file": "dayz-arena-wallhack.png",
+      "alt": "DayZ arena wallhack ESP with wireframe players and weapon tags",
+      "srcIndex": 9
+    },
+    {
+      "file": "dayz-spawn-island-esp.png",
+      "alt": "DayZ spawn island ESP with skeleton boxes and aimbot reticle",
+      "srcIndex": 10
+    },
+    {
+      "file": "dayz-long-range-esp.png",
+      "alt": "DayZ long range ESP wallhack with enemy names health and weapons",
+      "srcIndex": 11
+    },
+    {
+      "file": "dayz-aimbot-lock.png",
+      "alt": "DayZ aimbot lock with green skeleton ESP FOV circle and head priority",
+      "srcIndex": 12
+    },
+    {
+      "file": "dayz-chams-esp.png",
+      "alt": "DayZ chams and skeleton ESP cheat on wooden pier",
+      "srcIndex": 13
+    },
+    {
+      "file": "dayz-squad-esp.png",
+      "alt": "DayZ multi-player ESP wallhack with boxes skeletons and distances",
+      "srcIndex": 14
+    },
+    {
+      "file": "dayz-combat-esp.png",
+      "alt": "DayZ combat ESP and aimbot overlay in open field fight",
+      "srcIndex": 15
+    }
+  ],
+  "sourceCount": 16
+}

@@ -1,0 +1,88 @@
+---
+import '../../styles/forum.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/icons/Icon.astro';
+import { forumPosts, forumUserLabel, getForumPost } from '../../data/forum';
+import { cheatMetaDescription, pageTitle } from '../../config/seo';
+import { breadcrumbSchema, discussionForumPostingSchema } from '../../utils/schema';
+
+export function getStaticPaths() {
+  return forumPosts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const post = getForumPost(Astro.params.slug!);
+if (!post) return Astro.redirect('/forum/');
+const path = `/forum/${post.slug}/`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum/' }, { name: post.category, path: '/forum/' }, { name: post.title, path }];
+const relatedPosts = [
+  ...forumPosts.filter((item) => item.slug !== post.slug && item.category === post.category),
+  ...forumPosts.filter((item) => item.slug !== post.slug && item.category !== post.category),
+].slice(0, 3);
+---
+
+<BaseLayout title={pageTitle(post.title)} description={cheatMetaDescription(post.excerpt)} jsonLd={[
+  discussionForumPostingSchema({ name: post.title, text: post.body.join('\n\n'), url: path, author: post.author, comments: post.commentsCount }),
+  breadcrumbSchema(breadcrumbs),
+]}>
+  <section class="forum-page py-8 md:py-12">
+    <div class="mx-auto max-w-6xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="forum-layout forum-layout--detail">
+        <main class="forum-main">
+          <article class="forum-detail-card" data-forum-vote data-post-slug={post.slug} data-upvotes={post.upvotes}>
+            <div class="forum-vote forum-vote--detail" aria-label="Discussion voting">
+              <button class="forum-vote__up" type="button" data-vote-up aria-label="Upvote this discussion"><Icon name="chevronDown" size={17} /></button><span class="font-semibold tabular-nums" data-vote-count>{post.upvotes}</span><button type="button" disabled aria-label="Downvoting is unavailable"><Icon name="chevronDown" size={17} /></button>
+            </div>
+            <div class="forum-detail-content">
+              <div class="forum-post-meta"><span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span><a href="/forum/" class="forum-community-name">r/{post.category.toLowerCase().replaceAll(' ', '').replaceAll('&', '')}</a><span>·</span><span class="forum-reddit-user">Posted by {forumUserLabel(post.author)}</span><span>{post.age}</span></div>
+              <h1>{post.title}</h1>
+              {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
+              <p class="forum-detail-lead text-muted-foreground">
+                {post.excerpt} This DayZ cheats discussion covers {post.category.toLowerCase()} topics—aimbot,
+                ESP wallhack, BattlEye updates and tier choice on PC Steam.
+              </p>
+              <div class="forum-detail-copy">{post.body.map((paragraph) => <p>{paragraph}</p>)}</div>
+              {post.sourceTitle && <p class="forum-source forum-source--detail">Based on: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
+              <div class="forum-post-actions forum-post-actions--detail"><a href="#comments"><Icon name="messageCircle" size={16} /> {post.commentsCount} guide replies</a><a href={post.sourcePath}><Icon name="navBlog" size={15} /> Read source guide</a></div>
+              <div class="forum-login-prompt"><span class="forum-user-dot">i</span><span>Preview discussion</span><span>Posting and voting are unavailable here</span></div>
+              <section class="forum-comments" id="comments" aria-labelledby="comments-title">
+                <div class="forum-comments__heading"><h2 id="comments-title">{post.commentsCount} Comments</h2></div>
+                {post.comments.map((comment) => (
+                  <article class="forum-comment">
+                    <div class="forum-comment__rail"><span class="forum-comment__avatar">{comment.author.replace(/^u\//i, '').slice(0, 1).toUpperCase()}</span><span class="forum-comment__line"></span></div>
+                    <div class="forum-comment__body"><div class="forum-comment__meta"><span class="forum-reddit-user font-semibold">{forumUserLabel(comment.author)}</span><span>·</span><span>{comment.age}</span><span>·</span><span>{comment.score} points</span></div><p>{comment.body}</p>
+                    {comment.replies?.map((reply) => <div class="forum-comment forum-comment--reply"><div class="forum-comment__rail"><span class="forum-comment__avatar">{reply.author.replace(/^u\//i, '').slice(0, 1).toUpperCase()}</span></div><div class="forum-comment__body"><div class="forum-comment__meta"><span class="forum-reddit-user font-semibold">{forumUserLabel(reply.author)}</span><span>·</span><span>{reply.age}</span><span>·</span><span>{reply.score} points</span></div><p>{reply.body}</p></div></div>)}
+                    </div>
+                  </article>
+                ))}
+              </section>
+            </div>
+          </article>
+        </main>
+        <aside class="forum-sidebar">
+          <section class="forum-side-card forum-about"><div class="forum-side-card__banner"></div><div class="forum-about__content"><div class="forum-about__title"><span class={`forum-community-avatar tone-${post.categoryTone}`}>d</span><p class="forum-about__name">r/{post.category.toLowerCase().replaceAll(' ', '').replaceAll('&', '')}</p></div><p>Browse answers summarized from DayZ Cheats guides.</p><div class="forum-stats"><span><span class="font-semibold tabular-nums">{forumPosts.length}</span> guide discussions</span><span><span class="font-semibold tabular-nums">{forumPosts.filter((item) => item.category === post.category).length}</span> in this topic</span></div><a class="forum-join" href="/forum/">All forum threads</a></div></section>
+          <section class="forum-side-card forum-related-card" aria-labelledby="forum-related-title">
+            <p class="forum-side-heading" id="forum-related-title">More discussions</p>
+            <ul class="forum-related-list">
+              {relatedPosts.map((item) => (
+                <li>
+                  <a href={`/forum/${item.slug}/`}>
+                    <span class="forum-related-list__category">{item.category}</span>
+                    <span class="font-semibold">{item.title}</span>
+                    <span class="forum-related-list__meta">{item.commentsCount} guide answers <Icon name="arrowRight" size={14} /></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a class="forum-related-card__all" href="/forum/">View all discussions <Icon name="arrowRight" size={14} /></a>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import { initForumVotes } from '../../scripts/forum-votes.ts';
+  initForumVotes();
+</script>
