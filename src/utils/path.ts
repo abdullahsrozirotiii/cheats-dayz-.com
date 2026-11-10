@@ -6,6 +6,7 @@ export function withTrailingSlash(path: string): string {
     return path;
   }
   const [pathname, hash = ''] = path.split('#');
+  if (/\.[a-z0-9]{2,5}$/i.test(pathname)) return path;
   const normalized = pathname === '/' || pathname.endsWith('/') ? pathname : `${pathname}/`;
   return hash ? `${normalized}#${hash}` : normalized;
 }

@@ -32,8 +32,10 @@ _import/
 _dayz-images-import/
 .seo-baseline/
 
-# Generated from PNG on `npm run build` (scripts/optimize-images.mjs)
-public/images/**/*.webp
+# WebP variants are canonical in git; source PNGs are not stored (scripts/ensure-webp-variants.mjs).
+public/images/blog/*.png
+public/images/gameplay/*.png
+public/images/dayz-brand-logo.png
 
 # Local Lighthouse reports
 lighthouse*.json

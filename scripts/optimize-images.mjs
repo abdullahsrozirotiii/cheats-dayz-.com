@@ -36,7 +36,11 @@ for (const dir of dirs) {
 
 async function optimizeBrandLogo() {
   const input = path.join(root, 'public/images/dayz-brand-logo.png');
-  if (!fs.existsSync(input)) return;
+  const webp192 = path.join(root, 'public/images/dayz-brand-logo-192.webp');
+  if (!fs.existsSync(input)) {
+    if (fs.existsSync(webp192)) return;
+    return;
+  }
 
   for (const width of [96, 128, 192]) {
     const output = path.join(root, 'public/images', `dayz-brand-logo-${width}.webp`);

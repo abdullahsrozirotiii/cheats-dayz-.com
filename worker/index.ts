@@ -25,6 +25,12 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+    const pathname = url.pathname;
+    if (/\/[^/]+\.[a-z0-9]{2,5}\/$/i.test(pathname)) {
+      url.pathname = pathname.replace(/\/$/, '');
+      return env.ASSETS.fetch(new Request(url.toString(), request));
+    }
+
     // Indexing is controlled by each page's <meta name="robots"> and canonical URL.
     // Do not set X-Robots-Tag here — conflicting noindex headers break SEO audits and
     // override meta robots on *.workers.dev preview hosts.

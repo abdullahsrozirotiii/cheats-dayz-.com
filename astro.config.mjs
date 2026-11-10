@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 import { isExcludedSitemapPath } from './scripts/sitemap-exclude.mjs';
 import { buildSlugRedirectMap } from './src/config/slug-redirects.mjs';
+import { viteStaticTrailingSlash } from './scripts/vite-static-trailing-slash.mjs';
 
 export default defineConfig({
   site: 'https://cheats-dayz.com',
@@ -44,7 +45,7 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [viteStaticTrailingSlash(), tailwindcss()],
     build: {
       cssMinify: true,
       minify: 'esbuild',

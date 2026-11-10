@@ -208,7 +208,7 @@ const galleryRaw = {
     captionDesc: 'Player boxes, distance tags and FOV overlay in DayZ.',
   },
   gpScripts: {
-    src: `${gameplay}/dayz-aimbot-combat.png`,
+    src: `${gameplay}/dayz-combat-esp.png`,
     alt: 'DayZ PC aimbot in combat with FOV circle and green skeleton ESP on an enemy',
     caption: 'Aimbot',
     captionDesc: 'Aimbot FOV and skeleton ESP on an enemy player.',
@@ -226,7 +226,7 @@ const galleryRaw = {
     captionDesc: 'Skeleton ESP and aim lock on a pier fight.',
   },
   gpAutoKill: {
-    src: `${gameplay}/dayz-aimbot.png`,
+    src: `${gameplay}/dayz-combat-esp.png`,
     alt: 'DayZ sniper aimbot with green ESP box, weapon label, and scoped FOV circle',
     caption: 'Sniper aimbot',
     captionDesc: 'Scoped aimbot with ESP box and weapon label.',
@@ -256,7 +256,7 @@ const galleryRaw = {
     captionDesc: 'ESP through builds with names, HP and FOV.',
   },
   gpArena: {
-    src: `${gameplay}/dayz-arena-wallhack.png`,
+    src: `${gameplay}/dayz-player-esp.png`,
     alt: 'DayZ arena wallhack ESP with wireframe players and weapon tags',
     caption: 'Arena wallhack',
     captionDesc: 'Wireframe ESP and weapon tags in an arena.',
@@ -274,13 +274,13 @@ const galleryRaw = {
     captionDesc: 'Long-range enemy names, health and weapons through cover.',
   },
   gpAimLock: {
-    src: `${gameplay}/dayz-aimbot-lock.png`,
+    src: `${gameplay}/dayz-combat-esp.png`,
     alt: 'DayZ aimbot lock with green skeleton ESP, FOV circle, and head-bone priority',
     caption: 'Aimbot lock',
     captionDesc: 'Aimbot lock with skeleton ESP and head priority.',
   },
   gpChams: {
-    src: `${gameplay}/dayz-chams-esp.png`,
+    src: `${gameplay}/dayz-clothing-changer.png`,
     alt: 'DayZ chams and skeleton ESP cheat overlay on a wooden pier',
     caption: 'Chams ESP',
     captionDesc: 'Chams and skeleton ESP on a wooden pier.',

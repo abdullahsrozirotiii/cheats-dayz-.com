@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/optimize-images.mjs && node scripts/patch-robots-disallow.mjs && node scripts/strip-blog-boilerplate.mjs && astro build && node scripts/prune-redirect-stubs.mjs && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/validate-seo.mjs && node scripts/indexnow.mjs",
+    "build": "node scripts/ensure-webp-variants.mjs && node scripts/optimize-images.mjs && node scripts/patch-robots-disallow.mjs && node scripts/strip-blog-boilerplate.mjs && astro build && node scripts/prune-redirect-stubs.mjs && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/validate-seo.mjs && node scripts/indexnow.mjs",
     "validate:seo": "node scripts/validate-seo.mjs",
     "verify:deploy": "node scripts/verify-deploy-ready.mjs",
     "preview": "astro preview --host 0.0.0.0",
