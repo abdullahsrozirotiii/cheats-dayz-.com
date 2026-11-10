@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllProductSlugs, getProductPage, productHub } from '../../../data/products';
-import { pageTitle } from '../../../config/seo';
+import { clampMetaDescription, pageTitle } from '../../../config/seo';
 import { getPageSeoEntry } from '../../../config/pageSeo';
 import { breadcrumbSchema, productSchema } from '../../../utils/schema';
 import ProductDetail from '../../../components/ProductDetail.astro';
@@ -20,9 +20,9 @@ if (!product) {
 const pagePath = `${productHub.path}${product.slug}/`;
 const seoEntry = getPageSeoEntry(pagePath);
 const metaTitle = seoEntry?.title ?? pageTitle(`Buy ${product.title}`);
-const metaDescription =
-  seoEntry?.description ??
-  `Buy ${product.title} DayZ cheats — ${product.desc}`;
+const metaDescription = clampMetaDescription(
+  seoEntry?.description ?? `Buy ${product.title} for DayZ on PC — ${product.desc}`,
+);
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Products', path: productHub.path },

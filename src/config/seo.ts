@@ -1,8 +1,9 @@
 import { t } from '../i18n';
-import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
+import { SITE_DOMAIN as INDEXNOW_HOST_NAME, SITE_URL } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
-export const SITE_ORIGIN = `https://${t.site.domain}`;
+/** Always cheats-dayz.com — canonicals must match custom domain (not legacy hosts). */
+export const SITE_ORIGIN = SITE_URL;
 
 export const DEFAULT_OG_IMAGE = '/images/gameplay/dayz-esp-wallhack.png';
 
@@ -54,8 +55,11 @@ export function absoluteAssetUrl(path: string): string {
 
 export function resolvePageSeo(pathname: string): { title: string; description: string } {
   const entry = getPageSeoEntry(pathname);
-  if (entry) return entry;
-  return { title: t.site.title, description: t.site.description };
+  const raw = entry ?? { title: t.site.title, description: t.site.description };
+  return {
+    title: raw.title.trim(),
+    description: clampMetaDescription(raw.description),
+  };
 }
 
 export function pageTitle(keyword: string, brand = t.site.name): string {

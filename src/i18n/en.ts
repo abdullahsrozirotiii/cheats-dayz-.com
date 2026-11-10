@@ -1,32 +1,32 @@
 import type { Translations } from './types';
 import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
-import { DISCORD_URL, PRODUCT_BASE } from '../config/site';
+import { DISCORD_URL, PRODUCT_BASE, SITE_DOMAIN } from '../config/site';
 
 const productBase = PRODUCT_BASE;
 
 export const en: Translations = {
   site: {
     name: 'DayZ Cheats',
-    domain: 'cheats-dayz.com',
-    title: 'DayZ Cheats | Aimbot, ESP & Radar — cheats-dayz.com',
+    domain: SITE_DOMAIN,
+    title: 'DayZ Cheats | Aimbot, ESP & Radar — PC',
     description:
-      'DayZ cheats for PC: aimbot, ESP, radar and Lite/Pro/Elite tiers. Undetected presets and checkout at cheats-dayz.com.',
+      'Undetected DayZ cheats for PC — aimbot, ESP and radar. Lite, Pro and Elite tiers plus utilities on cheats-dayz.com.',
     discord: DISCORD_URL,
   },
   nav: [
-    { href: `${productBase}`, label: 'Shop cheats' },
-    { href: '/blog/', label: 'Cheat guides' },
-    { href: '/forum/', label: 'Community Q&A' },
-    { href: '/faq/', label: "Buyer's FAQ" },
-    { href: '/support/', label: 'Help desk' },
+    { href: `${productBase}`, label: 'Products', mobileLabel: 'Browse DayZ products' },
+    { href: '/blog/', label: 'Blog', mobileLabel: 'DayZ cheat guides' },
+    { href: '/forum/', label: 'Forum', mobileLabel: 'Community forum' },
+    { href: '/faq/', label: 'FAQ', mobileLabel: 'Pre-purchase questions' },
+    { href: '/support/', label: 'Support', mobileLabel: 'Help & tickets' },
   ],
   hero: {
     status: 'DayZ online',
-    eyebrow: 'DayZ Cheats',
-    titleLine1: 'cheats-dayz.com — DayZ Cheats',
-    titleLine2: 'Aimbot, ESP, Radar & Loot',
+    eyebrow: 'cheats-dayz.com',
+    titleLine1: 'DayZ Cheats with Aimbot,',
+    titleLine2: 'ESP, Radar & Loot ESP — cheats-dayz.com',
     subtitle:
-      'Undetected DayZ cheats for PC Steam — ESP loot finder, silent aimbot and radar for official and community servers. Lite, Pro and Elite at cheats-dayz.com.',
+      'DayZ is built on exploration and survival — our DayZ cheats cut looting time with ESP that highlights high-value gear, players and allies on official and community servers. Stay undetected with silent aimbot, radar awareness and stream-safe overlays from cheats-dayz.com.',
     ctaPrimary: 'Buy cheats',
     ctaDiscord: 'Join Discord',
     modesLabel: 'Modes',
@@ -289,7 +289,7 @@ export const en: Translations = {
       {
         badge: 'Available',
         category: 'Tools',
-        title: 'DayZ HWID Spoofer',
+        title: 'HWID Spoofer tool',
         subtitle:
           'Buy HWID Spoofer with instant digital delivery, secure checkout, and support. Built for HWID ban recovery, including Valorant and Vanguard.',
         desc:
@@ -307,7 +307,7 @@ export const en: Translations = {
       {
         badge: 'Available',
         category: 'Account recovery',
-        title: 'DayZ Game Accounts (UGC)',
+        title: 'Game accounts (UGC)',
         subtitle:
           'Buy game accounts with instant delivery, secure checkout, and support—ready-made stock for ranked, leveled, and starter options.',
         desc:
@@ -658,7 +658,6 @@ export const en: Translations = {
       { href: '/products/dayz-cheats/elite/', label: 'Elite dayz cheats', ariaLabel: 'Elite cheats' },
       { href: '/products/dayz-cheats/', label: 'All products & utilities', ariaLabel: 'Products' },
       { href: '/blog/', label: 'Read patch guides', ariaLabel: 'Blog' },
-      { href: '/forum/', label: 'Browse community Q&A', ariaLabel: 'Forum' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
     ],
     support: 'Help center',

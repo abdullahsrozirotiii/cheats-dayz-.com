@@ -6,10 +6,10 @@ import SocialShare from './SocialShare.astro';
 
 interface Props {
   pathname?: string;
-  pageTitle?: string;
+  shareTitle?: string;
 }
 
-const { pathname = '/', pageTitle = t.site.title } = Astro.props;
+const { pathname = '/', shareTitle = t.site.title } = Astro.props;
 
 const resourceLinks = [
   { href: '/blog/', label: 'Patch-day articles', ariaLabel: 'Blog archive' },
@@ -27,7 +27,7 @@ const legalLinks = [
 
 <footer class="border-t border-border bg-muted/30 py-16">
   <div class="mx-auto max-w-6xl px-5">
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a
           href="/"
@@ -79,12 +79,11 @@ const legalLinks = [
           ))}
         </ul>
       </nav>
-
-      <SocialShare pathname={pathname} title={pageTitle} />
     </div>
 
     <Separator class="my-8" />
-    <p class="text-left text-sm text-muted-foreground">
+    <SocialShare pathname={pathname} title={shareTitle} />
+    <p class="mt-6 text-left text-sm text-muted-foreground">
       &copy; {new Date().getFullYear()} {t.site.name} · {t.site.domain}
     </p>
   </div>

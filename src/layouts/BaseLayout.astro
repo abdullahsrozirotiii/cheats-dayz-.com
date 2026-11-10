@@ -90,8 +90,8 @@ const robotsContent = noindex
     <meta name="googlebot" content={robotsContent} />
     <meta name="theme-color" content="#7F3DEE" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en-US" href={canonical} />
     <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="en-US" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link
       rel="alternate"
@@ -165,7 +165,7 @@ const robotsContent = noindex
     <main id="main-content">
       <slot />
     </main>
-    <Footer pathname={Astro.url.pathname} pageTitle={title} />
+    <Footer pathname={Astro.url.pathname} shareTitle={title} />
     <script>
       const bootSite = () => {
         import('../scripts/site.ts');

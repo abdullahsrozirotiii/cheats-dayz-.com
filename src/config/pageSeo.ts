@@ -69,7 +69,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/forum/': {
     title: 'DayZ Cheats Forum | Setup & Config Help',
     description:
-      'Community threads on aimbot configs, ESP overlays, BattlEye status and product questions before you buy.',
+      'Forum for DayZ aimbot configs, ESP overlays, BattlEye status and product questions. cheats-dayz.com community.',
   },
   '/faq/': {
     title: 'DayZ Cheats FAQ | Aimbot, ESP, Bans & Setup',

@@ -17,11 +17,11 @@ import BrandLogo from './BrandLogo.astro';
 import type { IconName } from './icons/types';
 
 const navIcons: Record<string, IconName> = {
-  'Shop cheats': 'navProducts',
-  'Cheat guides': 'navBlog',
-  'Community Q&A': 'messageCircle',
-  "Buyer's FAQ": 'navFaq',
-  'Help desk': 'navSupport',
+  Products: 'navProducts',
+  Blog: 'navBlog',
+  Forum: 'messageCircle',
+  FAQ: 'navFaq',
+  Support: 'navSupport',
 };
 
 const purchaseUrl = checkoutPath('dayz');
@@ -87,7 +87,7 @@ const purchaseUrl = checkoutPath('dayz');
                 {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
               >
                 <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
-                {link.label}
+                {link.mobileLabel ?? link.label}
               </a>
             ))}
           </nav>
