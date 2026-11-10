@@ -5,6 +5,10 @@ main = "worker/index.ts"
 compatibility_date = "2025-10-11"
 workers_dev = true
 
+# Connected Git / Workers Builds (reads .node-version for Node 22).
+[build]
+command = "npm run build"
+
 [assets]
 directory = "./dist"
 binding = "ASSETS"

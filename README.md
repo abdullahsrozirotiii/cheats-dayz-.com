@@ -47,6 +47,8 @@ In **GitHub** → repo **Settings** → **Secrets and variables** → **Actions*
 
 Every push to **`main`** runs `.github/workflows/cloudflare-deploy.yml` (build + `wrangler deploy` to worker **`cheatsdayz-com`**).
 
+If you use **Cloudflare Workers Builds** (repo connected in the dashboard), set **Node.js version** to **22** (or rely on `.node-version`). The repo includes a synced `package-lock.json` so `npm ci` succeeds on Cloudflare.
+
 ### Git commits (abdullahsrozirotiii only)
 
 Do not change global git config. Commit with:
