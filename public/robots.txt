@@ -1,11 +1,12 @@
 User-agent: *
 Allow: /
 
-# /go/* are 302 affiliate checkout exits (not in sitemap). Allow crawlers so internal links are not "blocked by robots".
+# Checkout redirects (/go/*) are not in the sitemap; keep them crawlable for audits.
 
+# Sitemap index (pages, products, blog, forum): submit this URL in Search Console.
 Sitemap: https://cheats-dayz.com/sitemap.xml
 
-# RSS: https://cheats-dayz.com/rss.xml
+# RSS feed: https://cheats-dayz.com/rss.xml
 
 # Legacy 301 sources (no standalone content)
 Disallow: /blog/battleye-bypass-dayz-guide/

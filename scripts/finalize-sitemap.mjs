@@ -79,10 +79,12 @@ function normalizeUrl(loc) {
 
 /** @param {string | undefined} value */
 function formatLastmod(value) {
-  if (!value) return new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().slice(0, 10);
+  if (!value) return today;
   const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-  return d.toISOString().slice(0, 10);
+  if (Number.isNaN(d.getTime())) return today;
+  const iso = d.toISOString().slice(0, 10);
+  return iso > today ? today : iso;
 }
 
 /** @param {SitemapUrl[]} urls */

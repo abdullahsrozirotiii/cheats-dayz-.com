@@ -146,6 +146,104 @@ for (const loc of urls) {
 }
 
 errors.push(...checkRobots());
+errors.push(...checkSitemapRobots());
+errors.push(...checkSitemapIndex());
+
+function parseRobotsDisallow(text) {
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^Disallow:\s+/i.test(line))
+    .map((line) => line.replace(/^Disallow:\s+/i, '').trim())
+    .filter(Boolean);
+}
+
+function pathIsDisallowed(pathname, disallowRules) {
+  const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return disallowRules.some((rule) => {
+    const normalized = rule.startsWith('/') ? rule : `/${rule}`;
+    const withSlash = normalized.endsWith('/') ? normalized : `${normalized}/`;
+    return path === withSlash || path.startsWith(withSlash);
+  });
+}
+
+function checkSitemapRobots() {
+  const issues = [];
+  const robotsPath = path.join(dist, 'robots.txt');
+  const indexPath = path.join(dist, 'sitemap.xml');
+  if (!fs.existsSync(robotsPath) || !fs.existsSync(indexPath)) return issues;
+
+  const robotsText = fs.readFileSync(robotsPath, 'utf8');
+  const disallowRules = parseRobotsDisallow(robotsText);
+
+  const sitemapAll = path.join(dist, 'sitemap-all.xml');
+  if (!fs.existsSync(sitemapAll)) {
+    issues.push('sitemap-all.xml missing for robots cross-check');
+    return issues;
+  }
+  const locs = [
+    ...fs.readFileSync(sitemapAll, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g),
+  ].map((m) => m[1].trim());
+
+  for (const loc of locs) {
+    const { pathname } = new URL(loc);
+    if (pathIsDisallowed(pathname, disallowRules)) {
+      issues.push(`Sitemap URL blocked by robots.txt: ${loc}`);
+    }
+  }
+
+  const required = [
+    '/',
+    '/about/',
+    '/blog/',
+    '/faq/',
+    '/forum/',
+    '/support/',
+    '/products/dayz-cheats/',
+  ];
+  for (const req of required) {
+    const found = locs.some((loc) => new URL(loc).pathname === req);
+    if (!found) issues.push(`Required URL missing from sitemap: ${SITE}${req}`);
+  }
+
+  return issues;
+}
+
+function checkSitemapIndex() {
+  const issues = [];
+  const indexPath = path.join(dist, 'sitemap.xml');
+  if (!fs.existsSync(indexPath)) {
+    issues.push('dist/sitemap.xml missing');
+    return issues;
+  }
+  const indexXml = fs.readFileSync(indexPath, 'utf8');
+  if (!indexXml.includes('<sitemapindex')) {
+    issues.push('sitemap.xml must be a sitemap index (submit this URL in GSC)');
+    return issues;
+  }
+  const childLocs = [...indexXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+  if (childLocs.length === 0) {
+    issues.push('sitemap.xml index has no child sitemaps');
+    return issues;
+  }
+  for (const loc of childLocs) {
+    if (!loc.startsWith(`${SITE}/`) || !loc.endsWith('.xml')) {
+      issues.push(`Child sitemap must be absolute on ${SITE}: ${loc}`);
+      continue;
+    }
+    const file = path.join(dist, path.basename(new URL(loc).pathname));
+    if (!fs.existsSync(file)) {
+      issues.push(`Child sitemap file missing: ${file}`);
+    }
+  }
+  const indexCopy = path.join(dist, 'sitemap-index.xml');
+  if (!fs.existsSync(indexCopy)) {
+    issues.push('sitemap-index.xml missing (mirror of sitemap.xml)');
+  } else if (fs.readFileSync(indexCopy, 'utf8') !== indexXml) {
+    issues.push('sitemap-index.xml must match sitemap.xml');
+  }
+  return issues;
+}
 
 // Redirect stubs should not ship as HTML when _redirects handles the path
 for (const prefix of ['/cheats/', '/contact/', '/products/fortnite-cheats/', '/products/dota-2-cheats/']) {
