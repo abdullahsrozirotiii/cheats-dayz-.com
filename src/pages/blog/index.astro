@@ -17,6 +17,7 @@ import { blogTagIcons } from '../../data/sectionIcons';
 import type { IconName } from '../../components/icons/types';
 import { Button } from '@/components/starwind/button';
 import { ROUTES } from '../../utils/path';
+import SocialShare from '../../components/SocialShare.astro';
 
 const seo = resolvePageSeo('/blog/');
 const breadcrumbs = [
@@ -59,6 +60,9 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
         <p class="section-header__eyebrow">{t.blog.eyebrow}</p>
         <h1 id="blog-latest-title" class="section-header__title">{t.blog.latestTitle}</h1>
         <p class="section-header__subtitle">{t.blog.latestSubtitle}</p>
+        <div class="mt-4">
+          <SocialShare pathname={Astro.url.pathname} title={seo.title} />
+        </div>
       </header>
 
       <div class="mt-8 flex flex-col gap-4 lg:mt-10 lg:flex-row lg:items-end lg:justify-between lg:gap-6">

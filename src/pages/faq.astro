@@ -6,6 +6,7 @@ import { breadcrumbSchema, faqPageSchema, webPageSchema } from '../utils/schema'
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SiteFaqSection from '../components/SiteFaqSection.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import SocialShare from '../components/SocialShare.astro';
 
 const seo = resolvePageSeo('/faq/');
 const breadcrumbs = [
@@ -36,11 +37,14 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="DayZ cheats FAQ"
-          desc="Everything about Lite, Pro, Elite tiers, utilities, safety and blog topics—in one place."
+          title={seo.title}
+          desc="Everything about Lite, Pro, Elite tiers, aimbot, ESP, bans, loader setup, utilities and blog topics—in one place."
           titleId="faq-page-title"
           headingLevel={1}
         />
+        <div class="mt-6">
+          <SocialShare pathname={Astro.url.pathname} title={seo.title} />
+        </div>
       </div>
     </div>
   </section>

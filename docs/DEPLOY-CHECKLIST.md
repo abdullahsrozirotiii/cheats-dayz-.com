@@ -34,3 +34,7 @@ After the worker exists on the **same** Cloudflare account:
 ## Optional
 
 - `INDEXNOW_KEY` — only in Cloudflare build env vars or local `.dev.vars` if you want IndexNow pings (build succeeds without it).
+
+## SEO audits
+
+Run third-party audits on **`https://cheats-dayz.com/.../`** (trailing slash), not `*.workers.dev`. Preview hosts send `X-Robots-Tag: noindex` and use production canonical URLs by design.

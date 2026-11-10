@@ -6,6 +6,8 @@ import { isExcludedSitemapPath } from './sitemap-exclude.mjs';
 const SITE = 'https://cheats-dayz.com';
 const dist = resolveDistDir();
 
+const HUB_PATHS = ['/about/', '/blog/', '/faq/', '/forum/'];
+
 function readSitemapUrls() {
   const allPath = path.join(dist, 'sitemap-all.xml');
   if (!fs.existsSync(allPath)) {
@@ -41,6 +43,70 @@ function checkRobots() {
   return issues;
 }
 
+function extractMetaContent(html, name) {
+  const re = new RegExp(
+    `<meta\\s+name=["']${name}["']\\s+content=["']([^"']*)["']`,
+    'i',
+  );
+  const match = html.match(re);
+  return match?.[1]?.trim() ?? '';
+}
+
+function extractCanonical(html) {
+  const match = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
+  return match?.[1]?.trim() ?? '';
+}
+
+function extractH1Text(html) {
+  const match = html.match(/<h1[^>]*>([^<]*)</i);
+  return match?.[1]?.replace(/\s+/g, ' ').trim() ?? '';
+}
+
+function checkHubPage(loc, html) {
+  const url = new URL(loc);
+  if (!HUB_PATHS.includes(url.pathname)) return;
+
+  const expectedCanonical = loc;
+  const canonical = extractCanonical(html);
+  if (canonical !== expectedCanonical) {
+    errors.push(`Hub canonical mismatch on ${loc}: got ${canonical || '(missing)'}`);
+  }
+
+  const robots = extractMetaContent(html, 'robots').toLowerCase();
+  if (robots.includes('noindex') || robots.includes('nofollow')) {
+    errors.push(`Hub meta robots must allow indexing on ${loc}: "${robots}"`);
+  }
+
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+  if (title.length < 45 || title.length > 65) {
+    warnings.push(`Hub title length ${title.length} on ${loc} (aim 50–60)`);
+  }
+
+  const description = extractMetaContent(html, 'description');
+  if (description.length < 120 || description.length > 160) {
+    warnings.push(`Hub description length ${description.length} on ${loc} (aim 120–155)`);
+  }
+
+  const h1 = extractH1Text(html);
+  if (!h1) {
+    errors.push(`Hub missing H1 text on ${loc}`);
+  } else {
+    const titleWords = title
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((w) => w.length > 3);
+    const h1Lower = h1.toLowerCase();
+    const missing = titleWords.filter((w) => !h1Lower.includes(w));
+    if (missing.length > 2) {
+      warnings.push(`Hub H1 may not match title on ${loc}; missing tokens: ${missing.slice(0, 5).join(', ')}`);
+    }
+  }
+
+  if (!html.includes('hreflang="en"') || !html.includes('hreflang="x-default"')) {
+    errors.push(`Hub hreflang en + x-default required on ${loc}`);
+  }
+}
+
 const urls = readSitemapUrls();
 const errors = [];
 const warnings = [];
@@ -70,6 +136,7 @@ for (const loc of urls) {
   if (h1Count !== 1) {
     errors.push(`Expected 1 <h1> on ${loc}, found ${h1Count}`);
   }
+  checkHubPage(loc, html);
 }
 
 const seen = new Set();

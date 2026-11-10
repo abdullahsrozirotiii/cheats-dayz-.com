@@ -7,6 +7,7 @@ import { forumCategories, forumPosts, forumUserLabel } from '../../data/forum';
 import { blogPosts, getBlogPostTimestamp } from '../../data/blog';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
+import SocialShare from '../../components/SocialShare.astro';
 
 const seo = resolvePageSeo('/forum/');
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum/' }];
@@ -28,8 +29,9 @@ const sourceTimestamp = (path?: string) => {
       <header class="forum-hero">
         <div>
           <p class="section-header__eyebrow">DayZ community forum</p>
-          <h1>DayZ Cheats Forum</h1>
+          <h1>DayZ cheats forum — setup, config &amp; help</h1>
           <p class="forum-hero__copy">Practical answers on console setup, map awareness, patch updates, and player builds.</p>
+          <SocialShare pathname={Astro.url.pathname} title={seo.title} />
         </div>
         <a class="forum-create" href="/blog/"><Icon name="messageCircle" size={17} /> Explore the guides</a>
       </header>
@@ -76,8 +78,9 @@ const sourceTimestamp = (path?: string) => {
                   {post.sourceTitle && <p class="forum-source">From the guide: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
                   <div class="forum-post-actions">
                     {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                    <a href={`/forum/${post.slug}/`}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a>
-                    <a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Read discussion</a>
+                    <a href={`/forum/${post.slug}/`}>
+                      <Icon name="messageCircle" size={15} /> Open discussion — {post.commentsCount} replies
+                    </a>
                   </div>
                 </div>
               </article>

@@ -62,19 +62,19 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'HWID spoofer, game accounts (UGC) and skin changer utilities for DayZ players. Details at cheats-dayz.com.',
   },
   '/blog/': {
-    title: 'DayZ Cheat Guides | ESP, Aimbot, BattlEye',
+    title: 'DayZ Cheat Guides Hub | Aimbot, ESP & BattlEye',
     description:
-      'Guides for DayZ aimbot tuning, ESP setup, tier picks, HWID recovery and BattlEye patch days. cheats-dayz.com/blog.',
+      'DayZ cheat guides for aimbot tuning, ESP setup, tier picks, HWID recovery and BattlEye patch days. Step-by-step posts at cheats-dayz.com/blog.',
   },
   '/forum/': {
-    title: 'DayZ Cheats Forum | Setup & Config Help',
+    title: 'DayZ Cheats Forum | Setup, Config & Community Help',
     description:
-      'Forum for DayZ aimbot configs, ESP overlays, BattlEye status and product questions. cheats-dayz.com community.',
+      'Community forum for DayZ aimbot configs, ESP overlays, BattlEye status and product questions. Join threads at cheats-dayz.com/forum.',
   },
   '/faq/': {
-    title: 'DayZ Cheats FAQ | Aimbot, ESP, Bans & Setup',
+    title: 'DayZ Cheats FAQ | Aimbot, ESP, Bans & Loader Setup',
     description:
-      'FAQ on DayZ cheat tiers, aimbot, ESP, HWID spoofer, bans and loader setup before checkout at cheats-dayz.com.',
+      'FAQ on DayZ cheat tiers, aimbot, ESP wallhack, HWID spoofer, hardware bans, loader setup and checkout—before you buy at cheats-dayz.com.',
   },
   '/terms/': {
     title: 'Terms for DayZ Cheats | License & Refunds',
@@ -87,9 +87,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'How cheats-dayz.com uses analytics, cookies and contact data. We do not store payment card numbers.',
   },
   '/about/': {
-    title: 'About DayZ Cheats | PC Aimbot & ESP Shop',
+    title: 'About the DayZ Cheats Shop | PC Aimbot, ESP & Radar',
     description:
-      'About cheats-dayz.com — PC DayZ aimbot, ESP, radar, guides and utilities with status updates and support.',
+      'About cheats-dayz.com: PC DayZ aimbot, ESP and radar tiers, patch-day status, cheat guides, utilities and Discord support for Lite, Pro and Elite.',
   },
   '/support/': {
     title: 'DayZ Cheats Support | Loader & Checkout',

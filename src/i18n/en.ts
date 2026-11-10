@@ -339,7 +339,7 @@ export const en: Translations = {
     eyebrow: 'Cheat guides',
     title: 'DayZ cheat guides',
     subtitle: 'Aimbot setup, DayZ ESP cheat config, community practice tips and BattlEye patch-day checks.',
-    latestTitle: 'Latest cheat guides',
+    latestTitle: 'DayZ cheat guides: aimbot, ESP & BattlEye',
     latestSubtitle: 'Filter by topic or sort to find aimbot, ESP, radar and patch-day DayZ cheat guides.',
     filterAll: 'All articles',
     sortLabel: 'Sort by',
@@ -663,7 +663,7 @@ export const en: Translations = {
       { href: '/blog/', label: 'Blog archive' },
       { href: '/products/dayz-cheats/elite/', label: 'Elite cheats' },
       { href: '/products/dayz-cheats/utilities/', label: 'Products & utilities' },
-      { href: '/support/', label: 'Support' },
+      { href: '/support/', label: 'Help & tickets' },
     ],
     legal: 'Legal',
     legalLinks: [
@@ -685,21 +685,23 @@ export const en: Translations = {
         {
           heading: 'Who we are',
           paragraphs: [
-            'DayZ Cheats is a PC site for DayZ aimbot, ESP, radar and Clothing Changer products at cheats-dayz.com. We post tier comparisons, setup guides and live status notes.',
-            'Game and product names are for identification only.',
+            'DayZ Cheats is a PC shop for DayZ aimbot, ESP, radar and Clothing Changer products at cheats-dayz.com. We publish tier comparisons, setup guides, forum answers and live status notes after BattlEye and DayZ patches.',
+            'Our checkout runs through a secure partner—you receive portal access, loader downloads and config libraries after purchase. Game and product names are for identification only.',
           ],
         },
         {
           heading: 'What we sell',
           paragraphs: [
-            'Lite, Pro and Elite DayZ cheats, plus HWID Spoofer, Clothing Changer and UGC recovery. The blog covers configs, patch checks and BattlEye updates.',
-            'Pages are updated when DayZ or the loader changes. Check the homepage status banner and Discord #status before you play.',
+            'Lite focuses on awareness—player ESP, loot locator and radar without aimbot. Pro adds aimbot, smooth aim and hotkey macros for PvP. Elite bundles the full suite, Clothing Changer previews and priority patch delivery when slots are open.',
+            'Utilities include HWID Spoofer for hardware enforcement cases, UGC appeal workflows and standalone Skin Changer. The blog and forum host cheat guides, config tips and patch-day checklists.',
+            'Product pages list undetected status, feature tables and Buy now links. Pages update when the loader or BattlEye build changes—check the homepage status banner and Discord #status before you launch DayZ.',
           ],
         },
         {
           heading: 'Support',
           paragraphs: [
-            'Use Discord or email for loader errors, compatibility and checkout questions. Include your order email, Steam account and Windows version.',
+            'Use Discord or the Help & tickets page for loader errors, compatibility and checkout questions. Include your order email, Steam account, Windows version and screenshots of any BattlEye or loader errors.',
+            'Refund and license rules are documented on Terms & Conditions. For privacy questions, see the Privacy Policy.',
           ],
         },
       ],

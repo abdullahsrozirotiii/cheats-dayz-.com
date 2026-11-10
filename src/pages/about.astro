@@ -3,10 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n';
 import { resolvePageSeo } from '../config/seo';
 
-const seo = resolvePageSeo('/about/');
 import LegalPage from '../components/LegalPage.astro';
+import SocialShare from '../components/SocialShare.astro';
 import { breadcrumbSchema, organizationSchema, webPageSchema } from '../utils/schema';
 
+const seo = resolvePageSeo('/about/');
 const content = t.legalPages.about;
 ---
 
@@ -16,8 +17,8 @@ const content = t.legalPages.about;
   jsonLd={[
     organizationSchema(),
     webPageSchema({
-      name: content.title,
-      description: content.description,
+      name: seo.title,
+      description: seo.description,
       url: '/about/',
     }),
     breadcrumbSchema([
@@ -27,9 +28,14 @@ const content = t.legalPages.about;
   ]}
 >
   <LegalPage
-    title={content.title}
-    description={content.description}
+    title={seo.title}
+    description={seo.description}
     breadcrumbLabel="About"
     sections={content.sections}
   />
+  <section class="border-t border-border bg-muted/10 py-8">
+    <div class="mx-auto max-w-3xl px-5">
+      <SocialShare pathname={Astro.url.pathname} title={seo.title} />
+    </div>
+  </section>
 </BaseLayout>

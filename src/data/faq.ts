@@ -29,15 +29,17 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const elite = link('DayZ Elite', productPath('elite'));
-const lite = link('DayZ Lite ESP & radar package', productPath('lite'));
-const pro = link('DayZ Pro aimbot & ESP package', productPath('pro'));
-const productsHub = link('DayZ products', ROUTES.products);
-const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
-const ugc = link('UGC', productPath('ugc'));
-const skin = link('Clothing Changer', productPath('skin-changer'));
-const faqPage = link('full FAQ', ROUTES.faq);
-const blog = link('blog guides', ROUTES.blog);
+const P = {
+  elite: productPath('elite'),
+  lite: productPath('lite'),
+  pro: productPath('pro'),
+  products: ROUTES.products,
+  hwid: productPath('hwid-spoofer'),
+  ugc: productPath('ugc'),
+  skin: productPath('skin-changer'),
+  faq: ROUTES.faq,
+  blog: ROUTES.blog,
+} as const;
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -73,14 +75,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `${productsHub} lists cheat tiers, ${hwid}, ${ugc}, and ${skin} with feature lists and checkout via our partner.`,
+    a: `${link('DayZ products hub', P.products)} lists cheat tiers, ${link('HWID spoofer utility', P.hwid)}, ${link('UGC appeal workspace', P.ugc)}, and ${link('Clothing Changer tool', P.skin)} with feature lists and checkout via our partner.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
     q: 'What is DayZ ESP wallhack / ESP?',
-    a: `ESP wallhack and player ESP show enemy positions, loot, loot and town camps through map edge. ${lite} covers awareness overlays. ${pro} and ${elite} add script modules on top.`,
+    a: `ESP wallhack and player ESP show enemy positions, loot, loot and town camps through map edge. ${link('Lite ESP & radar tier', P.lite)} covers awareness overlays. ${link('Pro aimbot package', P.pro)} and ${link('Elite script suite', P.elite)} add script modules on top.`,
     scopes: ['lite', 'pro', 'elite'],
   },
   {
@@ -88,14 +90,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What is the difference between ESP wallhack and aimbot?',
-    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Smooth Aim and Silent aim are aimbot on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
+    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Smooth Aim and Silent aim are aimbot on ${link('Pro PvP tier', P.pro)} and ${link('Elite bot suite', P.elite)}. You can run awareness-only on ${link('Lite radar package', P.lite)}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which tier do I need for ESP wallhack only?',
-    a: `${lite} is awareness only: player ESP, loot locator, loot timers and radar hack. ${pro} adds aimbot. ${elite} adds bots, kill steal and Clothing Changer.`,
+    a: `${link('DayZ Lite awareness', P.lite)} is awareness only: player ESP, loot locator, loot timers and radar hack. ${link('DayZ Pro aimbot', P.pro)} adds aimbot. ${link('DayZ Elite bots', P.elite)} adds bots, kill steal and Clothing Changer.`,
     scopes: ['lite'],
   },
   {
@@ -103,7 +105,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
     q: 'Which tier includes Aimbot?',
-    a: `${pro} ships Aimbot, Smooth Aim, Silent aim and Hotkey macros. ${elite} includes everything in Pro plus Loot Assist and Finish assist. ${lite} has no aimbot automation.`,
+    a: `${link('Pro tier scripts', P.pro)} ships Aimbot, Smooth Aim, Silent aim and Hotkey macros. ${link('Elite full package', P.elite)} includes everything in Pro plus Loot Assist and Finish assist. ${link('Lite-only ESP', P.lite)} has no aimbot automation.`,
     scopes: ['pro'],
   },
   {
@@ -111,7 +113,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → ${lite}. PvP gunfights with aimbot → ${pro}. Full bot suite and priority patches → ${elite}. Compare on each cheat page or the ${faqPage}.`,
+    a: `Map awareness only → ${link('compare Lite radar', P.lite)}. PvP gunfights with aimbot → ${link('compare Pro aimbot', P.pro)}. Full bot suite and priority patches → ${link('compare Elite suite', P.elite)}. Compare on each cheat page or the ${link('complete FAQ index', P.faq)}.`,
   },
   {
     id: 'elite-slots',
@@ -126,7 +128,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Can OBS capture my overlay?',
-    a: `Stream-proof mode on ${lite}, ${pro} and ${elite} hides overlays from OBS and Discord share. Test a local recording before going live.`,
+    a: `Stream-proof mode on ${link('Lite stream-proof ESP', P.lite)}, ${link('Pro stream presets', P.pro)} and ${link('Elite OBS-safe build', P.elite)} hides overlays from OBS and Discord share. Test a local recording before going live.`,
   },
   {
     id: 'undetected',
@@ -147,7 +149,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Steam accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only BattlEye cases; see ${ugc} instead.`,
+    a: `Use ${link('HWID Spoofer product', P.hwid)} when fresh Steam accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only BattlEye cases; see ${link('UGC ban appeals', P.ugc)} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -155,7 +157,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Steam account restrictions and BattlEye bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `${link('UGC recovery tool', P.ugc)} (Unban & Governance Control) is an appeal workspace for Steam account restrictions and BattlEye bans—custom workflows and case tracking, not a guaranteed unban service.`,
     scopes: ['ugc'],
   },
   {
@@ -163,7 +165,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqSkinChanger',
     q: 'Does Clothing Changer modify my Steam inventory?',
-    a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${elite}; available standalone for cosmetic preview only.`,
+    a: `${link('Skin Changer preview', P.skin)} previews cosmetics locally on your client. Other players see your real inventory. Included with ${link('Elite tier bundle', P.elite)}; available standalone for cosmetic preview only.`,
     scopes: ['skin-changer'],
   },
   {
@@ -171,35 +173,35 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqExternalLoader',
     q: 'Is the loader injected into the Steam folder?',
-    a: `DayZ Cheats runs external with cloud config sync—no files injected into the DayZ directory. BattlEye risk still applies. See ${productsHub}.`,
+    a: `DayZ Cheats runs external with cloud config sync—no files injected into the DayZ directory. BattlEye risk still applies. See ${link('all DayZ products', P.products)}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
     q: 'Are blog cheat codes the same as PvP cheats?',
-    a: `No. Blog articles about Steam console commands apply only in custom lobbies with cheats enabled. PvP DayZ cheats are separate products—see ${lite}, ${pro} and ${elite}.`,
+    a: `No. Blog articles about Steam console commands apply only in custom lobbies with cheats enabled. PvP DayZ cheats are separate products—see ${link('Lite tier page', P.lite)}, ${link('Pro tier page', P.pro)} and ${link('Elite tier page', P.elite)}.`,
   },
   {
     id: 'blog-setup',
     topic: 'blog',
     icon: 'faqBlogSetup',
     q: 'Where do blog setup guides point for purchase?',
-    a: `Guides link to tier pages and ${productsHub}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
+    a: `Guides link to tier pages and ${link('products & utilities hub', P.products)}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
   },
   {
     id: 'compare-plans',
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Where do I compare plans side by side?',
-    a: `Each cheat tier page includes a compare table. The ${faqPage} collects product, cheat and blog answers in one place.`,
+    a: `Each cheat tier page includes a compare table. The ${link('DayZ cheats FAQ hub', P.faq)} collects product, cheat and blog answers in one place.`,
   },
   {
     id: 'who-lite',
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, loot, loot—and will not touch aimbot automation. If you keep enabling combo aimbot, buy ${pro} instead.`,
+    a: `Players who only want map awareness—ESP, loot, loot—and will not touch aimbot automation. If you keep enabling combo aimbot, buy ${link('upgrade to Pro', P.pro)} instead.`,
     scopes: ['lite'],
   },
   {
@@ -237,14 +239,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqZoomPvP',
     q: 'Do tiers work in hardcore and PvP?',
-    a: `Yes—${lite}, ${pro} and ${elite} include hardcore and PvP presets in the portal. Tune distance caps and script delay before your first queue.`,
+    a: `Yes—${link('Lite hardcore presets', P.lite)}, ${link('Pro PvP configs', P.pro)} and ${link('Elite ranked presets', P.elite)} include hardcore and PvP presets in the portal. Tune distance caps and script delay before your first queue.`,
   },
   {
     id: 'zoom-hack',
     topic: 'esp',
     icon: 'faqZoomHack',
     q: 'Which tier includes radar hack?',
-    a: `Radar ships on ${lite} and carries through ${pro} and ${elite}. Mini-radar helps zone awareness without guessing rotates.`,
+    a: `Radar ships on ${link('Lite mini-radar', P.lite)} and carries through ${link('Pro overlay stack', P.pro)} and ${link('Elite radar module', P.elite)}. Mini-radar helps zone awareness without guessing rotates.`,
     scopes: ['lite'],
   },
   {
@@ -252,7 +254,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqAutoFarm',
     q: 'Which tier includes Loot Assist?',
-    a: `Loot Assist, Rotation Assist AI and Auto loadout manager are ${elite} only. ${pro} covers combat aimbot without bot farming.`,
+    a: `Loot Assist, Rotation Assist AI and Auto loadout manager are ${link('Elite-only bots', P.elite)} only. ${link('Pro combat scripts', P.pro)} covers combat aimbot without bot farming.`,
     scopes: ['elite'],
   },
   {
@@ -367,7 +369,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `This site includes landing FAQs and per-page sections. See the ${faqPage} for all product, cheat and blog answers—or read ${blog} for deep guides.`,
+    a: `This site includes landing FAQs and per-page sections. See the ${link('master FAQ list', P.faq)} for all product, cheat and blog answers—or read ${link('DayZ cheat guides blog', P.blog)} for deep guides.`,
   },
 ];
 
@@ -459,7 +461,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which tier matches this guide?',
-      a: `Awareness guides → ${lite}. Script and combo guides → ${pro}. Bot and kill-steal topics → ${elite}.`,
+      a: `Awareness guides → ${link('Lite ESP guides', P.lite)}. Script and combo guides → ${link('Pro script guides', P.pro)}. Bot and kill-steal topics → ${link('Elite bot guides', P.elite)}.`,
     },
     {
       id: 'blog-guide-status',
@@ -502,7 +504,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to ${lite}, ${pro}, ${elite} and ${productsHub}. Feature lists on product pages are authoritative for checkout.`,
+    a: `Articles explain workflows and link to ${link('Lite product page', P.lite)}, ${link('Pro product page', P.pro)}, ${link('Elite product page', P.elite)} and ${link('shop all tiers', P.products)}. Feature lists on product pages are authoritative for checkout.`,
   },
   {
     id: 'blog-default-2',
@@ -530,7 +532,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which tier covers ESP wallhack from this article?',
-      a: `${lite} includes player ESP, loot locator and loot timers. ${pro} adds combat aimbot on the same overlay stack.`,
+      a: `${link('Lite player ESP', P.lite)} includes player ESP, loot locator and loot timers. ${link('Pro combat overlay', P.pro)} adds combat aimbot on the same overlay stack.`,
     });
   }
   if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
@@ -539,7 +541,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
       q: 'Which tier includes the aimbot in this article?',
-      a: `${pro} and ${elite} ship Aimbot and related modules. ${lite} is ESP wallhack only.`,
+      a: `${link('Pro aimbot modules', P.pro)} and ${link('Elite automation pack', P.elite)} ship Aimbot and related modules. ${link('Lite wallhack-only tier', P.lite)} is ESP wallhack only.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('ban') || slug.includes('eac')) {
@@ -548,7 +550,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'products',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace HWID or UGC products?',
-      a: `Recovery guides complement ${hwid} and ${ugc}—read product pages for workflow scope and realistic outcomes.`,
+      a: `Recovery guides complement ${link('HWID reset utility', P.hwid)} and ${link('UGC case workspace', P.ugc)}—read product pages for workflow scope and realistic outcomes.`,
     });
   }
 
