@@ -38,22 +38,24 @@ npm start         # Node static server with redirects (local parity)
    npm run deploy
    ```
 
-### Deploy from GitHub (push → Cloudflare)
+### Deploy from Cloudflare dashboard (no GitHub secrets)
 
-In **GitHub** → repo **Settings** → **Secrets and variables** → **Actions**, add:
+GitHub **does not** store Cloudflare API tokens for this repo. Ops connects the repo once in **Cloudflare → Workers & Pages → Connect to Git**, then deploys / redeploys from Cloudflare.
 
-| Secret | Where to get it |
-|--------|------------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → **My Profile** → **API Tokens** → **Create Token** → template **Edit Cloudflare Workers** (or custom: Account Workers Scripts Edit + Workers R2 Storage / Account read) |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → **Workers & Pages** → right sidebar **Account ID** (32-character hex) |
+| Step | Setting |
+|------|---------|
+| Node | **22** (`.node-version`) |
+| Install | `npm ci` |
+| Build | `npm run build` |
+| Deploy | `npx wrangler deploy` |
 
-| `INDEXNOW_KEY` (optional) | Only if you use IndexNow pings on build |
+Worker name stays **`cheatsdayz-com`**. Attach **`cheats-dayz.com`** in the dashboard after the zone is on the same account — see [docs/CLOUDFLARE-HANDOFF-ROMAN-URDU.md](docs/CLOUDFLARE-HANDOFF-ROMAN-URDU.md).
 
-Without **`CLOUDFLARE_API_TOKEN`** and **`CLOUDFLARE_ACCOUNT_ID`**, the **Deploy to Cloudflare Workers** workflow fails at “Require Cloudflare secrets” (expected until ops adds secrets).
+GitHub **CI** (`.github/workflows/ci.yml`) only runs `npm run build` on push — no deploy, no secrets required.
 
-Every push to **`main`** runs `.github/workflows/cloudflare-deploy.yml` (build + `wrangler deploy` to worker **`cheatsdayz-com`**). Custom domain is attached **after** deploy — see handoff doc; do not require domain for the first deploy.
+### Optional IndexNow
 
-If you use **Cloudflare Workers Builds** (repo connected in the dashboard), set **Node.js version** to **22** (or rely on `.node-version`). The repo includes a synced `package-lock.json` so `npm ci` succeeds on Cloudflare.
+- `INDEXNOW_KEY` — optional env var in Cloudflare build settings or `.dev.vars` locally (`scripts/indexnow.mjs` skips if unset).
 
 ### Git commits (abdullahsrozirotiii only)
 
