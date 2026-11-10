@@ -41,8 +41,10 @@ In **GitHub** → repo **Settings** → **Secrets and variables** → **Actions*
 
 | Secret | Where to get it |
 |--------|------------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → **My Profile** → **API Tokens** → Create token with **Edit Cloudflare Workers** (or Workers + account read) |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → **Workers & Pages** → right sidebar **Account ID** |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → **My Profile** → **API Tokens** → **Create Token** → template **Edit Cloudflare Workers** (or custom: Account Workers Scripts Edit + Workers R2 Storage / Account read) |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → **Workers & Pages** → right sidebar **Account ID** (32-character hex) |
+
+Without both secrets, the **Deploy to Cloudflare Workers** workflow fails with `CLOUDFLARE_API_TOKEN environment variable`.
 | `INDEXNOW_KEY` (optional) | Only if you use IndexNow pings on build |
 
 Every push to **`main`** runs `.github/workflows/cloudflare-deploy.yml` (build + `wrangler deploy` to worker **`cheatsdayz-com`**).

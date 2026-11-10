@@ -5,10 +5,7 @@ main = "worker/index.ts"
 compatibility_date = "2025-10-11"
 workers_dev = true
 
-# Connected Git / Workers Builds (reads .node-version for Node 22).
-[build]
-command = "npm run build"
-
+# CI / GitHub Actions run `npm run build` first; wrangler only uploads dist/ + worker.
 [assets]
 directory = "./dist"
 binding = "ASSETS"
@@ -19,9 +16,9 @@ run_worker_first = true
 
 # After `wrangler login`, attach your domain (zone must be on this Cloudflare account):
 # [[routes]]
-# pattern = "cheatsdayz.com/*"
-# zone_name = "cheatsdayz.com"
+# pattern = "cheats-dayz.com/*"
+# zone_name = "cheats-dayz.com"
 #
 # [[routes]]
-# pattern = "www.cheatsdayz.com/*"
-# zone_name = "cheatsdayz.com"
+# pattern = "www.cheats-dayz.com/*"
+# zone_name = "cheats-dayz.com"
